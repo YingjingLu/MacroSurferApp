@@ -55,7 +55,7 @@ function SidenavCard({ color, ...rest }) {
         </VuiBox>
         <VuiBox lineHeight={1}>
           <VuiTypography variant="h6" color="white">
-            Need help?
+            Want know more?
           </VuiTypography>
           <VuiBox mb={1.825} mt={-1}>
             <VuiTypography variant="caption" color="white" fontWeight="regular">
@@ -64,7 +64,7 @@ function SidenavCard({ color, ...rest }) {
           </VuiBox>
           <VuiButton
             component={Link}
-            href="https://www.creative-tim.com/learning-lab/react/quick-start/vision-ui-dashboard/"
+            href="https://docs.macrosurfer.com"
             target="_blank"
             rel="noreferrer"
             size="small"
