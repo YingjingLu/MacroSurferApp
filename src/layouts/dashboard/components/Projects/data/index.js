@@ -47,200 +47,239 @@ export default function data() {
 
   return {
     columns: [
-      { name: "companies", align: "left" },
-      { name: "members", align: "left" },
-      { name: "budget", align: "center" },
-      { name: "completion", align: "center" },
+      { name: "Event", align: "left" },
+      { name: "Time", align: "left" },
+      { name: "Period", align: "center" },
+      { name: "Forecast", align: "center" },
+      { name: "Previous", align: "center" },
     ],
 
     rows: [
       {
-        companies: (
+        Event: (
           <VuiBox display="flex" alignItems="center">
             <AdobeXD size="20px" />
             <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-              Chakra Vision UI Version
+              Cleveland Fed President Loretta Mester and Fed Gov. Michelle Bowman speak in Japan
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar1, "Ryan Tompson"],
-              [avatar2, "Romina Hadid"],
-              [avatar3, "Alexander Smith"],
-              [avatar4, "Jessica Doe"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
+        Time: (
           <VuiTypography variant="button" color="white" fontWeight="bold">
-            $14,000
+            Tue, May 28, 12:55 AM
           </VuiTypography>
         ),
-        completion: (
+        Period: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Forecast: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Previous: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
-              60%
+              
             </VuiTypography>
-            <VuiProgress value={60} color="info" label={false} sx={{ background: "#2D2E5F" }} />
           </VuiBox>
         ),
       },
       {
-        companies: (
+        Event: (
           <VuiBox display="flex" alignItems="center">
-            <Atlassian size="20px" />
+            <AdobeXD size="20px" />
             <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-              Add Progress Track
+            S&P Case-Shiller home price index (20 cities)
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar2, "Romina Hadid"],
-              [avatar4, "Jessica Doe"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
+        Time: (
           <VuiTypography variant="button" color="white" fontWeight="bold">
-            $3,000
+            Tue, May 28, 9:00 AM
           </VuiTypography>
         ),
-        completion: (
+        Period: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            Mar
+          </VuiTypography>
+        ),
+        Forecast: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            7.3%
+          </VuiTypography>
+        ),
+        Previous: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
-              10%
+              7.3%
             </VuiTypography>
-            <VuiProgress value={10} color="info" label={false} sx={{ background: "#2D2E5F" }} />
           </VuiBox>
         ),
       },
       {
-        companies: (
+        Event: (
           <VuiBox display="flex" alignItems="center">
-            <Slack size="20px" />
+            <AdobeXD size="20px" />
             <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-              Fix Platform Errors
+              Minneapolis Fed President Neel Kashkari speaks
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar1, "Ryan Tompson"],
-              [avatar3, "Alexander Smith"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
+        Time: (
           <VuiTypography variant="button" color="white" fontWeight="bold">
-            Not set
+            Tue, May 28, 9:55 AM
           </VuiTypography>
         ),
-        completion: (
+        Period: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Forecast: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Previous: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
-              100%
+              
             </VuiTypography>
-            <VuiProgress value={100} color="info" label={false} sx={{ background: "#2D2E5F" }} />
           </VuiBox>
         ),
       },
       {
-        companies: (
+        Event: (
           <VuiBox display="flex" alignItems="center">
-            <Spotify size="20px" />
+            <AdobeXD size="20px" />
             <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-              Launch our Mobile App
+            Consumer confidence
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar4, "Jessica Doe"],
-              [avatar3, "Alexander Smith"],
-              [avatar2, "Romina Hadid"],
-              [avatar1, "Ryan Tompson"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
+        Time: (
           <VuiTypography variant="button" color="white" fontWeight="bold">
-            $20,500
+            Tue, May 28, 10:00 AM
           </VuiTypography>
         ),
-        completion: (
+        Period: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            May
+          </VuiTypography>
+        ),
+        Forecast: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            96.0
+          </VuiTypography>
+        ),
+        Previous: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
-              100%
+              97.0
             </VuiTypography>
-            <VuiProgress value={100} color="info" label={false} sx={{ background: "#2D2E5F" }} />
           </VuiBox>
         ),
       },
       {
-        companies: (
+        Event: (
           <VuiBox display="flex" alignItems="center">
-            <Jira size="20px" />
+            <AdobeXD size="20px" />
             <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-              Add the New Pricing Page
+              Fed Gov. Lisa Cook and San Francisco Fed President Mary Daly speak
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([[avatar4, "Jessica Doe"]])}
-          </VuiBox>
-        ),
-        budget: (
+        Time: (
           <VuiTypography variant="button" color="white" fontWeight="bold">
-            $500
+            Tue, May 28, 1:00 PM
           </VuiTypography>
         ),
-        completion: (
+        Period: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Forecast: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Previous: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
-              25%
+              
             </VuiTypography>
-            <VuiProgress value={25} color="info" label={false} sx={{ background: "#2D2E5F" }} />
           </VuiBox>
         ),
       },
       {
-        companies: (
+        Event: (
           <VuiBox display="flex" alignItems="center">
-            <Invision size="20px" />
+            <AdobeXD size="20px" />
             <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-              Redesign New Online Shop
+              New York Fed President John Williams speaks
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar1, "Ryan Tompson"],
-              [avatar4, "Jessica Doe"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
+        Time: (
           <VuiTypography variant="button" color="white" fontWeight="bold">
-            $2,000
+            Tue, May 29, 1:45 AM
           </VuiTypography>
         ),
-        completion: (
+        Period: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Forecast: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Previous: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
-              40%
+              
             </VuiTypography>
-            <VuiProgress value={40} color="info" label={false} sx={{ background: "#2D2E5F" }} />
           </VuiBox>
         ),
       },
+      {
+        Event: (
+          <VuiBox display="flex" alignItems="center">
+            <AdobeXD size="20px" />
+            <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
+              Fed Beige Book
+            </VuiTypography>
+          </VuiBox>
+        ),
+        Time: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            Tue, May 28, 12:55 AM
+          </VuiTypography>
+        ),
+        Period: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Forecast: (
+          <VuiTypography variant="button" color="white" fontWeight="bold">
+            
+          </VuiTypography>
+        ),
+        Previous: (
+          <VuiBox width="8rem" textAlign="left">
+            <VuiTypography color="white" variant="button" fontWeight="bold">
+              
+            </VuiTypography>
+          </VuiBox>
+        ),
+      },
+
     ],
   };
 }

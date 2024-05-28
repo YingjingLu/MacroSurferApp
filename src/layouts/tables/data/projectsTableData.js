@@ -73,18 +73,18 @@ export default {
         <VuiBox display="flex" alignItems="center">
           <AdobeXD size="20px" />
           <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-            Chakra Vision UI Version
+          Cleveland Fed President Loretta Mester and Fed Gov. Michelle Bowman speak in Japan
           </VuiTypography>
         </VuiBox>
       ),
       budget: (
         <VuiTypography variant="button" color="white" fontWeight="medium">
-          $14,000
+          Tue, May 28
         </VuiTypography>
       ),
       status: (
         <VuiTypography variant="button" color="white" fontWeight="medium">
-          Working
+          12:55PM
         </VuiTypography>
       ),
       completion: <Completion value={60} color="info" />,
