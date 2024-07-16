@@ -24,8 +24,8 @@ const WelcomeMark = () => {
             Surfer
           </VuiTypography>
           <VuiTypography color="text" variant="h6" fontWeight="regular" mb="auto">
-            Glad to see you again!
-            <br /> Ask me anything.
+            For interactive experience, checkout our 
+            <br /> chatbot experience in the link below.
           </VuiTypography>
         </VuiBox>
         <VuiTypography

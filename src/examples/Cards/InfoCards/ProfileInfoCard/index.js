@@ -110,9 +110,9 @@ function ProfileInfoCard({ title, description, info, social }) {
               color="text"
               textTransform="capitalize"
             >
-              social: &nbsp;
+              {/* social: &nbsp; */}
             </VuiTypography>
-            {renderSocial}
+            {/* {renderSocial} */}
           </VuiBox>
         </VuiBox>
       </VuiBox>
