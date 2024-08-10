@@ -30,7 +30,7 @@ const WelcomeMark = () => {
         </VuiBox>
         <VuiTypography
           component="a"
-          href="#"
+          href="https://chat.macrosurfer.com/"
           variant="button"
           color="white"
           fontWeight="regular"
