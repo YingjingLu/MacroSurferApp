@@ -19,7 +19,7 @@ import avatar2 from "assets/images/avatar2.png";
 import avatar3 from "assets/images/avatar3.png";
 import avatar4 from "assets/images/avatar4.png";
 
-export default function data() {
+export default function data(eventList) {
   const avatars = (members) =>
     members.map(([image, name]) => (
       <Tooltip key={name} title={name} placeholder="bottom">
@@ -45,6 +45,42 @@ export default function data() {
       </Tooltip>
     ));
 
+   const rows = [];
+   for (for event of eventList) {
+    rows.push({
+      Event: (
+        <VuiBox display="flex" alignItems="center">
+          <AdobeXD size="20px" />
+          <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
+            {event.event}
+          </VuiTypography>
+        </VuiBox>
+      ),
+      Time: (
+        <VuiTypography variant="button" color="white" fontWeight="bold">
+          {event.time}
+        </VuiTypography>
+      ),
+      Period: (
+        <VuiTypography variant="button" color="white" fontWeight="bold">
+          
+        </VuiTypography>
+      ),
+      Forecast: (
+        <VuiTypography variant="button" color="white" fontWeight="bold">
+          
+        </VuiTypography>
+      ),
+      Previous: (
+        <VuiBox width="8rem" textAlign="left">
+          <VuiTypography color="white" variant="button" fontWeight="bold">
+            
+          </VuiTypography>
+        </VuiBox>
+      ),
+    });
+   }
+
   return {
     columns: [
       { name: "Event", align: "left" },
@@ -55,38 +91,7 @@ export default function data() {
     ],
 
     rows: [
-      {
-        Event: (
-          <VuiBox display="flex" alignItems="center">
-            <AdobeXD size="20px" />
-            <VuiTypography pl="16px" color="white" variant="button" fontWeight="medium">
-              Cleveland Fed President Loretta Mester and Fed Gov. Michelle Bowman speak in Japan
-            </VuiTypography>
-          </VuiBox>
-        ),
-        Time: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            Tue, May 28, 12:55 AM
-          </VuiTypography>
-        ),
-        Period: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            
-          </VuiTypography>
-        ),
-        Forecast: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            
-          </VuiTypography>
-        ),
-        Previous: (
-          <VuiBox width="8rem" textAlign="left">
-            <VuiTypography color="white" variant="button" fontWeight="bold">
-              
-            </VuiTypography>
-          </VuiBox>
-        ),
-      },
+      ,
       {
         Event: (
           <VuiBox display="flex" alignItems="center">
