@@ -38,22 +38,7 @@ import data from "layouts/dashboard/components/Projects/data";
 // Change this page
 function Projects() {
   const [menu, setMenu] = useState(null);
-  const [eventList, setEventList] = useState([]);
-  const { columns, rows } = data(eventList);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch('https://api.example.com/events'); // Replace with your API endpoint
-        const data: Event[] = await response.json();
-        setEventList(data);
-      } catch (error) {
-        console.error('Error fetching events:', error);
-      }
-    };
-
-    fetchEvents();
-  }, []);
+  const { columns, rows } = data();
 
   const openMenu = ({ currentTarget }) => setMenu(currentTarget);
   const closeMenu = () => setMenu(null);
