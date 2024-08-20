@@ -58,36 +58,52 @@ export default function data(eventList) {
       ),
       Time: (
         <VuiTypography variant="button" color="white" fontWeight="bold">
-          {event.time}
+          {new Date(event.event_date).toLocaleString()} {/* Example date formatting */}
         </VuiTypography>
       ),
       Period: (
         <VuiTypography variant="button" color="white" fontWeight="bold">
-            {event.period}
+           {event.period || "Monthly"}  // todo: API data may be missing period, do we still need that?
         </VuiTypography>
       ),
       Forecast: (
         <VuiTypography variant="button" color="white" fontWeight="bold">
-            {event.forecast}
+            {event.estimate || "N/A"}
         </VuiTypography>
       ),
       Previous: (
         <VuiBox width="8rem" textAlign="left">
           <VuiTypography color="white" variant="button" fontWeight="bold">
-            {event.previous}
+            {event.previous || "N/A"}
           </VuiTypography>
         </VuiBox>
       ),
+        Changes: (
+          <VuiBox width="8rem" textAlign="left">
+          <VuiTypography color="white" variant="button" fontWeight="bold">
+            {event.change_percentage || "N/A"}
+          </VuiTypography>
+        </VuiBox>
+        ),
+        Unit: (
+          <VuiBox width="8rem" textAlign="left">
+          <VuiTypography color="white" variant="button" fontWeight="bold">
+            {event.unit || "N/A"}
+          </VuiTypography>
+        </VuiBox>
+        )
     });
    }
 
   return {
     columns: [
-      { name: "Event", align: "left" },
-      { name: "Time", align: "left" },
-      { name: "Period", align: "center" },
-      { name: "Forecast", align: "center" },
-      { name: "Previous", align: "center" },
+        {name: "Event", align: "left"},
+        {name: "Time", align: "left"},
+        {name: "Period", align: "center"},
+        {name: "Forecast", align: "center"},
+        {name: "Previous", align: "center"},
+        {name: "Changes", align: "center"},
+        {name: "Unit", align: "center"}
     ],
     rows,
     };
