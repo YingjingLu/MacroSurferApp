@@ -35,11 +35,29 @@ import Table from "examples/Tables/Table";
 // Data
 import data from "layouts/dashboard/components/Projects/data";
 
+
 // Change this page
 function Projects() {
   const [menu, setMenu] = useState(null);
-  const { columns, rows } = data();
+  // the initial event list is empty,
+  const [eventList, setEventList] = useState([])
+  const { columns, rows } = data(eventList);
+  // data was orignally set to be empty but when user updates the website,
+  // useEffect is called, data is then populated from the api
+    useEffect(() => {
+      const fetchEvents = async () => {
+        try {
+          const response = await fetch('https://geteventsindaterange-rozzd6eg5q-uc.a.run.app/getEventsInDateRange');
+          const event_data = await response.json();
+          // set the empty array with your returned json data from get event calendar API
+          setEventList(event_data);
+        } catch (error) {
+          console.error('Error fetching events:', error);
+        }
+      };
 
+    fetchEvents();
+  }, []);
   const openMenu = ({ currentTarget }) => setMenu(currentTarget);
   const closeMenu = () => setMenu(null);
 
