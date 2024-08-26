@@ -61,16 +61,6 @@ export default function data(eventList) {
           {new Date(event.event_date).toLocaleString()} {/* Example date formatting */}
         </VuiTypography>
       ),
-      Period: (
-        <VuiTypography variant="button" color="white" fontWeight="bold">
-           {event.period || "Monthly"}  // todo: API data may be missing period, do we still need that?
-        </VuiTypography>
-      ),
-      Forecast: (
-        <VuiTypography variant="button" color="white" fontWeight="bold">
-            {event.estimate || "N/A"}
-        </VuiTypography>
-      ),
       Previous: (
         <VuiBox width="8rem" textAlign="left">
           <VuiTypography color="white" variant="button" fontWeight="bold">
@@ -99,8 +89,6 @@ export default function data(eventList) {
     columns: [
         {name: "Event", align: "left"},
         {name: "Time", align: "left"},
-        {name: "Period", align: "center"},
-        {name: "Forecast", align: "center"},
         {name: "Previous", align: "center"},
         {name: "Changes", align: "center"},
         {name: "Unit", align: "center"}
