@@ -34,12 +34,54 @@ import Table from "examples/Tables/Table";
 
 // Data
 import data from "layouts/dashboard/components/Projects/data";
+import React, { useEffect } from 'react';
+import moment from 'moment';
+
 
 // Change this page
 function Projects() {
   const [menu, setMenu] = useState(null);
-  const { columns, rows } = data();
+  // the initial event list is empty,
+  const [eventList, setEventList] = useState([])
+  const { columns, rows } = data(eventList);
+  // data was orignally set to be empty but when user updates the website,
+  // useEffect is called, data is then populated from the api
+    useEffect(() => {
+      const fetchEvents = async () => {
+        try {
+          // Get today's date using moment
+          const today = moment();
 
+          // Get the first weekday of the previous month
+          let firstDayOfLastMonth = today.clone().subtract(1, 'months').startOf('month');
+
+          // Adjust if the first day is a weekend
+          if (firstDayOfLastMonth.day() === 6) {
+            // If it's Saturday, move to Monday
+            firstDayOfLastMonth = firstDayOfLastMonth.add(2, 'days');
+          } else if (firstDayOfLastMonth.day() === 0) {
+            // If it's Sunday, move to Monday
+            firstDayOfLastMonth = firstDayOfLastMonth.add(1, 'days');
+          }
+
+          // Format the dates in 'YYYY-MM-DD'
+          const startDate = firstDayOfLastMonth.format('YYYY-MM-DD');
+          const endDate = today.format('YYYY-MM-DD');
+
+          // API URL with dynamic dates
+          const apiUrl = `https://geteventsindaterange-rozzd6eg5q-uc.a.run.app/getEventsInDateRange?startDate=${startDate}&endDate=${endDate}&country=US`;
+
+          const response = await fetch(apiUrl);
+          const event_data = await response.json();
+          // set the empty array with your returned json data from get event calendar API
+          setEventList(event_data);
+        } catch (error) {
+          console.error('Error fetching events:', error);
+        }
+      };
+
+    fetchEvents();
+  }, []);
   const openMenu = ({ currentTarget }) => setMenu(currentTarget);
   const closeMenu = () => setMenu(null);
 
