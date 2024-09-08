@@ -38,6 +38,32 @@ import React, { useEffect } from 'react';
 import moment from 'moment';
 
 
+function formatDateToYYYYMMDD(date) {
+  let year = date.getFullYear();
+  let month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based, so add 1
+  let day = String(date.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+}
+
+function getNextSunday() {
+  let today = new Date();
+  let dayOfWeek = today.getDay();
+  let daysUntilNextSunday = 7 - dayOfWeek;
+  
+  if (daysUntilNextSunday === 0) {
+    daysUntilNextSunday = 7;
+  }
+
+  let nextSunday = new Date(today);
+  nextSunday.setDate(today.getDate() + daysUntilNextSunday);
+
+  return formatDateToYYYYMMDD(nextSunday);
+}
+
+console.log(getNextSunday());
+
+
 // Change this page
 function Projects() {
   const [menu, setMenu] = useState(null);
@@ -50,23 +76,10 @@ function Projects() {
       const fetchEvents = async () => {
         try {
           // Get today's date using moment
-          const today = moment();
-
-          // Get the first weekday of the previous month
-          let firstDayOfLastMonth = today.clone().subtract(1, 'months').startOf('month');
-
-          // Adjust if the first day is a weekend
-          if (firstDayOfLastMonth.day() === 6) {
-            // If it's Saturday, move to Monday
-            firstDayOfLastMonth = firstDayOfLastMonth.add(2, 'days');
-          } else if (firstDayOfLastMonth.day() === 0) {
-            // If it's Sunday, move to Monday
-            firstDayOfLastMonth = firstDayOfLastMonth.add(1, 'days');
-          }
-
+          const today = new Date();
           // Format the dates in 'YYYY-MM-DD'
-          const startDate = firstDayOfLastMonth.format('YYYY-MM-DD');
-          const endDate = today.format('YYYY-MM-DD');
+          const startDate = formatDateToYYYYMMDD(today);
+          const endDate = getNextSunday();
 
           // API URL with dynamic dates
           const apiUrl = `https://geteventsindaterange-rozzd6eg5q-uc.a.run.app/getEventsInDateRange?startDate=${startDate}&endDate=${endDate}&country=US`;
@@ -120,7 +133,7 @@ function Projects() {
           <VuiBox display="flex" alignItems="center" lineHeight={0}>
             <BsCheckCircleFill color="green" size="15px" />
             <VuiTypography variant="button" fontWeight="regular" color="text" ml="5px">
-              &nbsp;<strong>14</strong> in the coming week
+              &nbsp;<strong>{eventList.length}</strong> in the coming week
             </VuiTypography>
           </VuiBox>
         </VuiBox>
