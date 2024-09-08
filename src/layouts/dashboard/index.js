@@ -69,7 +69,7 @@ function Dashboard() {
     <DashboardLayout>
       <DashboardNavbar />
       <VuiBox py={3}>
-        <VuiBox mb={3}>
+        {/* <VuiBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} xl={3}>
               <MiniStatisticsCard
@@ -104,16 +104,16 @@ function Dashboard() {
               />
             </Grid>
           </Grid>
-        </VuiBox>
+        </VuiBox> */}
         <VuiBox mb={3}>
           <Grid container spacing="18px">
-            <Grid item xs={12} lg={12} xl={5}>
+            <Grid item xs={12} lg={7} xl={7}>
               <WelcomeMark />
             </Grid>
-            <Grid item xs={12} lg={6} xl={3}>
+            {/* <Grid item xs={12} lg={4} xl={4}>
               <SatisfactionRate />
-            </Grid>
-            <Grid item xs={12} lg={6} xl={4}>
+            </Grid> */}
+            <Grid item xs={12} lg={5} xl={5}>
               <ReferralTracking />
             </Grid>
           </Grid>
@@ -278,11 +278,11 @@ function Dashboard() {
           // </Grid>
         </VuiBox> */}
         <Grid container spacing={3} direction="row" justifyContent="center" alignItems="stretch">
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={12} lg={12}>
             <Projects />
           </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            {/* <OrderOverview /> */}
+          {/* <Grid item xs={12} md={6} lg={4}>
+            <OrderOverview />
             <ProfileInfoCard
               title="US PMI Survey May"
               description="The US Purchasing Managers’ Index (PMI) survey for May is a critical macroeconomic event that measures the economic health of the manufacturing sector. Conducted by the Institute for Supply Management (ISM), the PMI survey assesses variables such as new orders, inventory levels, production, supplier deliveries, and employment. A PMI reading above 50 indicates expansion in the manufacturing sector, while a reading below 50 signals contraction. The survey results are highly anticipated by economists, investors, and policymakers, as they provide valuable insights into economic trends, business confidence, and potential future economic activity. The May PMI survey can influence financial markets, impact business decisions, and guide monetary policy adjustments by the Federal Reserve."
@@ -292,24 +292,24 @@ function Dashboard() {
                 "Official Data": "Yes",
               }}
               social={[
-                // {
-                //   link: "https://www.facebook.com/CreativeTim/",
-                //   icon: <FacebookIcon />,
-                //   color: "facebook",
-                // },
-                // {
-                //   link: "https://twitter.com/creativetim",
-                //   icon: <TwitterIcon />,
-                //   color: "twitter",
-                // },
-                // {
-                //   link: "https://www.instagram.com/creativetimofficial/",
-                //   icon: <InstagramIcon />,
-                //   color: "instagram",
-                // },
+                {
+                  link: "https://www.facebook.com/CreativeTim/",
+                  icon: <FacebookIcon />,
+                  color: "facebook",
+                },
+                {
+                  link: "https://twitter.com/creativetim",
+                  icon: <TwitterIcon />,
+                  color: "twitter",
+                },
+                {
+                  link: "https://www.instagram.com/creativetimofficial/",
+                  icon: <InstagramIcon />,
+                  color: "instagram",
+                },
               ]}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </VuiBox>
       <Footer />
