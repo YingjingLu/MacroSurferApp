@@ -40,6 +40,7 @@
 
 // Vision UI Dashboard React layouts
 import Dashboard from "layouts/dashboard";
+import PrivacyPolicy from "layouts/privacy";
 import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
@@ -64,6 +65,15 @@ const routes = [
     route: "/dashboard",
     icon: <IoHome size="15px" color="inherit" />,
     component: Dashboard,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "privacy",
+    key: "privacy",
+    route: "/privacy",
+    icon: <IoHome size="15px" color="inherit" />,
+    component: PrivacyPolicy,
     noCollapse: true,
   },
   // {
