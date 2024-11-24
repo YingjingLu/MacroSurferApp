@@ -17,7 +17,7 @@
 */
 
 import { useState, useEffect, useMemo } from "react";
-
+import PrivacyPolicy from "layouts/privacy";
 // react-router components
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 
@@ -153,6 +153,7 @@ export default function App() {
         {layout === "vr" && <Configurator />}
         <Switch>
           {getRoutes(routes)}
+          <Route exact path={'/privacy'} component={PrivacyPolicy} key={'privacy'} />
           <Redirect from="*" to="/dashboard" />
         </Switch>
       </ThemeProvider>
@@ -177,6 +178,7 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Switch>
         {getRoutes(routes)}
+        <Route exact path={'/privacy'} component={PrivacyPolicy} key={'privacy'} />
         <Redirect from="*" to="/dashboard" />
       </Switch>
     </ThemeProvider>
