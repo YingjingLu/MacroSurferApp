@@ -225,8 +225,8 @@ function Sidenav({ color, brandName, routes, ...rest }) {
           },
         })}
       >
-        <SidenavCard color={color} />
-        <VuiBox mt={2}>
+        {/* <SidenavCard color={color} /> */}
+        {/* <VuiBox mt={2}>
           <VuiButton
             component="a"
             href="https://app.macrosurfer.com/login"
@@ -238,7 +238,7 @@ function Sidenav({ color, brandName, routes, ...rest }) {
           >
             Launch custom views
           </VuiButton>
-        </VuiBox>
+        </VuiBox> */}
       </VuiBox>
     </SidenavRoot>
   );

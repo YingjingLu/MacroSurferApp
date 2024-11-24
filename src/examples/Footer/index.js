@@ -37,7 +37,7 @@ function Footer() {
           sx={{ textAlign: "center", fontWeight: "400 !important" }}
           color="white"
         >
-          @ 2022, Made with ❤️&nbsp;&nbsp;&nbsp; by{" "}
+          @ 2024, Made with ❤️&nbsp;&nbsp;&nbsp; by{" "}
           <VuiTypography
             component="a"
             variant="button"
@@ -56,14 +56,14 @@ function Footer() {
           <VuiBox mr={{ xs: "20px", lg: "46px" }}>
             <VuiTypography
               component="a"
-              href="https://www.creative-tim.com/templates"
+              href="https://www.macrosurfer.com"
               variant="body2"
               color="white"
             >
               About us
             </VuiTypography>
           </VuiBox>
-          <VuiBox mr={{ xs: "20px", lg: "46px" }}>
+          {/* <VuiBox mr={{ xs: "20px", lg: "46px" }}>
             <VuiTypography
               component="a"
               href="https://www.creative-tim.com/blog/"
@@ -72,8 +72,8 @@ function Footer() {
             >
               Blog
             </VuiTypography>
-          </VuiBox>
-          <VuiBox>
+          </VuiBox> */}
+          {/* <VuiBox>
             <VuiTypography
               component="a"
               href="https://www.creative-tim.com/license"
@@ -82,7 +82,7 @@ function Footer() {
             >
               License
             </VuiTypography>
-          </VuiBox>
+          </VuiBox> */}
         </VuiBox>
       </VuiBox>
     </VuiBox>
