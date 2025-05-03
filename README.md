@@ -1,429 +1,82 @@
-# [Vision UI Free React](https://demos.creative-tim.com/vision-ui-dashboard-react) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/vision-ui-dashboard-react&text=Check%20Vision%20UI%20Dashboard%20made%20by%20@simmmple_web%20and%20@CreativeTim%20#webdesign%20#dashboard%20#react)
+# TailAdmin React - Tailwind CSS React Admin Dashboard Template
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/vision-ui-dashboard-react.svg?maxAge=2592000)](https://github.com/creativetimofficial/vision-ui-dashboard-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/vision-ui-dashboard-react.svg?maxAge=2592000)](https://github.com/creativetimofficial/vision-ui-dashboard-react/issues?q=is%3Aissue+is%3Aclosed)
+TailAdmin is a free and open-source admin dashboard template built on **React and Tailwind CSS**, providing developers with everything they need to create a comprehensive, data-driven back-end, 
+dashboard, or admin panel solution for upcoming web projects.
 
-![Product Gif](https://i.ibb.co/YjWPdyT/vision-ui-free-react.png)
+[![tailwind admin template](https://ucarecdn.com/364f2f57-6e1a-4ca4-9fc8-ab721029f6c3/tailadmingh.png)](https://tailadmin.com/)
 
-Most trendiest, complex and innovative Free Dashboard Made by [Simmmple](https://simmmple.com?ref=readme-vudreact) & [Creative Tim](https://creative-tim.com/?ref=readme-vudreact). Check our latest Free ReactJS Dashboard.
 
-Designed for those who like modern UI elements and beautiful websites. Made of hundred of elements, designed blocks and fully coded pages, Vision UI Dashboard React is ready to help you create stunning websites and webapps.
+With TailAdmin, you get access to all the necessary dashboard UI components, elements, and pages required to build a feature-rich and complete dashboard or admin panel. Whether you're building dashboard or admin panel for a complex web application or a simple website, TailAdmin is the perfect solution to help you get up and running quickly.
 
-We created many examples for pages like Sign In, Profile and so on. Just choose between a Basic Design, an illustration or a cover and you are good to go!
+### [🚀 View Demo](https://react-demo.tailadmin.com/)
 
-**Fully Coded Elements**
+### [✨ Visit Website](https://tailadmin.com/)
 
-Vision UI Dashboard React is built with over 70 frontend individual elements, like buttons, inputs, navbars, navtabs, cards or alerts, giving you the freedom of choosing and combining. All components can take variations in colour, that you can easily modify using MUI's style props.
+### [⬇️ Download Now](https://tailadmin.com/download)
 
-You will save a lot of time going from prototyping to full-functional code, because all elements are implemented. This Free MUI Dashboard is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
+### [📄 Documentation/Installation](https://tailadmin.com/docs)
 
-Check all components <a href="https://www.creative-tim.com/learning-lab/react/overview/vision-ui-dashboard/?ref=readme-vudreact" target="_blank">here</a>.
+### [⚡ PRO Version](https://tailadmin.com/pricing)
 
-**Documentation built by Developers**
+### [🖌️ TailAdmin Figma](https://www.figma.com/community/file/1214477970819985778)
 
-Each element is well presented in a very complex documentation.
-You can read more about the <a href="https://www.creative-tim.com/learning-lab/react/overview/vision-ui-dashboard/?ref=readme-vudreact" target="_blank">documentation here</a>.
+TailAdmin React dashboard template based on Tailwind CSS is a pre-designed starting point for building a web-based dashboard using the React JavaScript library and the Tailwind CSS utility-first framework. This Tailwind CSS + React Dashboard Template - built using Tailwind CSS and **includes pre-built components, such as navigation menus, charts, tables, and forms, which can be easily customized and integrated into a small-to-large React web application**.
 
-**Example Pages**
+If you're looking for a high-quality **React-Tailwind Dashboard, Admin Panel Template, or UI Kit**, TailAdmin will be the perfect choice for you!
 
-If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. Every page is spaced well, with attractive layouts and pleasing shapes. From specially designed dashboards for smart homes, virtual reality, and automotives to CRM admins, Vision UI Dashboard Free React has everything you need to quickly set up an amazing project.
+## TailAdmin React - Installation
 
-View <a href="https://demos.creative-tim.com/vision-ui-dashboard-react?ref=readme-vudreact" target="_blank">example pages here</a>.
+You'll need to install Node.js >=v14.16+ (Recommended Version) (NPM comes along with it) and TailAdmin uses **Vite** for frontend tooling, to peform installation and building production version, please follow these steps from below:
 
-**HELPFUL LINKS**
+- Use terminal and navigate to the project (tailadmin-react) root.
 
-- View <a href="https://github.com/creativetimofficial/vision-ui-dashboard-react" target="_blank">Github Repository</a>
+- Then run : <code>npm install</code>
 
-- Check <a href="https://www.creative-tim.com/knowledge-center?ref=readme-vudreact" target="_blank">FAQ Page</a>
+- Then run : <code>npm run dev</code>
 
-#### Special thanks
+Now, in the browser go to <code>localhost:5173</code>
 
-During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
+**For Production Build**
+Run : <code>npm run build</code>
 
-- [Material UI](https://mui.com/?ref=creative-tim) - Modern Open source framework
-- [ApexCharts.js](https://apexcharts.com?ref=creative-tim) - Modern & Interactive Open-source charts
-- [Quill Editor](https://www.npmjs.com/package/react-quill?ref=creative-tim) - ReactJS Text Editor provided by Quill
-- [React Table](https://react-table.tanstack.com/docs/overview?ref=creative-tim) - Collection of hooks for building powerful ReactJD tables
-- [ReactJS](https://reactjs.org?ref=creative-tim) - A popular JavaScript library for building user interfaces
+Default build output directory: /dist
 
-Let us know your thoughts below. And good luck with development!
+This command will generate a dist as build folder in the root of your template that you can upload to your server.
 
-## Table of Contents
 
-- [Vision UI Dashboard Free React](https://demos.creative-tim.com/vision-ui-dashboard-react/?ref=readme-vudreact)
-- [Table of Contents](#table-of-contents)
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick start](#quick-start)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
-- [Social Media](#social-media)
-
-## Versions
-
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vision-ui-dashboard-react?ref=readme-vudreact)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/chakra-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vision-ui-dashboard-chakra?ref=readme-vudreact)
-
-| React | Chakra |
-| ]------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Vision UI Dashboard Free React](https://i.ibb.co/RYKtQ4M/vision-ui-free-react-ct.png)](https://www.creative-tim.com/product/vision-ui-dashboard-react?ref=readme-vudreact) | [![Vision UI Dashboard Free Chakra](https://i.ibb.co/kg5mNxm/vision-ui-free-chakra-ct.png)](https://www.creative-tim.com/product/vision-ui-dashboard-chakra?ref=readme-vudreact) |
-
-## Demo
-
-[View all Pages](https://demos.creative-tim.com/vision-ui-dashboard-react?ref=readme-vudreact).
-
-# Quick start
-
-Quick start options:
-
-- Buy from [Creative Tim](https://www.creative-tim.com/product/vision-ui-dashboard-react?ref=readme-vudreact).
-
-## Preparation
-
-1. Download and Install NodeJs 16 from the [official website](https://nodejs.org/en/about/previous-releases) or use [nvm](https://github.com/nvm-sh/nvm) to quickly switch versions.
-2. Navigate to the projects root directory and run `yarn install` or `npm install` to install the projects dependencies.
-
-## Documentation
-
-The documentation for the Vision UI Dashboard Free is hosted at our [website](https://www.creative-tim.com/learning-lab/react/overview/vision-ui-dashboard/?ref=readme-vudreact).
-
-## File Structure
-
-Within the download you'll find the following directories and files:
-
-```
-vision-dashboard-react-free/
-├── public
-│   ├── apple-icon.png
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── manifest.json
-│   └── robots.txt
-└── src
-    ├── assets
-    │   ├── images
-    │   └── theme
-    │       ├── base
-    │       │   ├── borders.js
-    │       │   ├── boxShadows.js
-    │       │   ├── breakpoints.js
-    │       │   ├── colors.js
-    │       │   ├── globals.js
-    │       │   ├── typography.css
-    │       │   └── typography.js
-    │       ├── components
-    │       │   ├── button
-    │       │   ├── card
-    │       │   ├── dialog
-    │       │   ├── form
-    │       │   ├── list
-    │       │   ├── menu
-    │       │   ├── stepper
-    │       │   ├── table
-    │       │   ├── tabs
-    │       │   ├── appBar.js
-    │       │   ├── avatar.js
-    │       │   ├── breadcrumbs.js
-    │       │   ├── buttonBase.js
-    │       │   ├── container.js
-    │       │   ├── divider.js
-    │       │   ├── icon.js
-    │       │   ├── iconButton.js
-    │       │   ├── linearProgress.js
-    │       │   ├── link.js
-    │       │   ├── popover.js
-    │       │   ├── slider.js
-    │       │   ├── svgIcon.js
-    │       │   └── tooltip.js
-    │       ├── functions
-    │       │   ├── boxShadow.js
-    │       │   ├── gradientChartLine.js
-    │       │   ├── hexToRgb.js
-    │       │   ├── linearGradient.js
-    │       │   ├── pxToRem.js
-    │       │   ├── radialGradient.js
-    │       │   ├── rgba.js
-    │       │   └── tripleLinearGradient.js
-    │       ├── index.js
-    │       └── theme-rtl.js
-    ├── components
-    │   ├── VuiAlert
-    │   │   ├── index.js
-    │   │   ├── VuiAlertCloseIcon.js
-    │   │   └── VuiAlertRoot.js
-    │   ├── VuiAvatar
-    │   │   ├── index.js
-    │   │   └── VuiAvatarRoot.js
-    │   ├── VuiBadge
-    │   │   ├── index.js
-    │   │   └── VuiBadgeRoot.js
-    │   ├── VuiBox
-    │   │   ├── index.js
-    │   │   └── VuiBoxRoot.js
-    │   ├── VuiButton
-    │   │   ├── index.js
-    │   │   └── VuiButtonRoot.js
-    │   ├── VuiInput
-    │   │   ├── index.js
-    │   │   ├── VuiInputIconBoxRoot.js
-    │   │   ├── VuiInputIconRoot.js
-    │   │   ├── VuiInputIcon.js
-    │   │   └── VuiInputWithIconRoot.js
-    │   ├── VuiPagination
-    │   │   ├── index.js
-    │   │   └── VuiPaginationItemRoot.js
-    │   ├── VuiProgress
-    │   │   ├── index.js
-    │   │   └── VuiProgressRoot.js
-    │   ├── VuiSwitch
-    │   │   ├── index.js
-    │   │   └── VuiSwitchRoot.js
-    │   └── VuiTypography
-    │       ├── index.js
-    │       └── VuiTypographyRoot.js
-    ├── context
-    │   └── index.js
-    ├── examples
-    │   ├── Breadcrumbs
-    │   │   └── index.js
-    │   ├── Calendar
-    │   │   ├── CalendarRoot.js
-    │   │   └── index.js
-    │   ├── Cards
-    │   │   ├── InfoCards
-    │   │   │   └── index.js
-    │   │   ├── MasterCard
-    │   │   │   └── index.js
-    │   │   ├── ProjectCards
-    │   │   │   └── index.js
-    │   │   └── StatisticsCards
-    │   │      └── index.js
-    │   ├── Charts
-    │   │   ├── BarCharts
-    │   │   │   └── BarChart.js
-    │   │   └── LineCharts
-    │   │       └── LineChart.js
-    │   ├── Configurator
-    │   │   ├── ConfiguratorRoot.js
-    │   │   └── index.js
-    │   ├── Footer
-    │   │   └── index.js
-    │   ├── GradientBorder
-    │   │   ├── GradientBorderRoot.js
-    │   │   └── index.js
-    │   ├── Icons
-    │   ├── Items
-    │   │   ├── index.js
-    │   │   └── styles.js
-    │   ├── LayoutContainers
-    │   │   ├── DashboardLayout
-    │   │   │   └── index.js
-    │   │   └── PageLayout
-    │   │       └── index.js
-    │   ├── Lists
-    │   │   └── index.js
-    │   ├── Navbars
-    │   │   ├── DashboardNavbar
-    │   │   │   ├── index.js
-    │   │   │   └── styles.js
-    │   │   ├── DefaultNavbar
-    │   │   │   ├── DefaultNavbarLink.js
-    │   │   │   ├── DefaultNavbarMobile.js
-    │   │   │   └── index.js
-    │   ├── Scrollbar
-    │   │   └── index.js
-    │   ├── Sidenav
-    │   │   ├── styles
-    │   │   │   ├── sidenav.js
-    │   │   │   ├── sidenavCard.js
-    │   │   │   └── sidenavCollapse.js
-    │   │   ├── index.js
-    │   │   ├── SidenavCard.js
-    │   │   ├── SidenavCollapse.js
-    │   │   └── SidenavRoot.js
-    │   ├── Tables
-    │   │   └── index.js
-    │   └── Timeline
-    │       ├── context
-    │       │   └── index.js
-    │       ├── TimelineItem
-    │       │   ├── index.js
-    │       │   └── styles.js
-    │       └── TimelineList
-    │           └── index.js
-    ├── layouts
-    │   ├── authentication
-    │   │   ├── components
-    │   │   │   ├── BasicLayout
-    │   │   │   │   └── index.js
-    │   │   │   ├── CoverLayout
-    │   │   │   │   └── index.js
-    │   │   │   ├── Footer
-    │   │   │   │   └── index.js
-    │   │   │   ├── IllustrationLayout
-    │   │   │   │   └── index.js
-    │   │   │   ├── Separator
-    │   │   │   │   └── index.js
-    │   │   │   └── Socials
-    │   │   │       └── index.js
-    │   │   ├── sign-in
-    │   │   │   └── index.js
-    │   │   └── sign-up
-    │   │       └── index.js
-    │   ├── billing
-    │   │   ├── components
-    │   │   │   ├── Bill
-    │   │   │   │   └── index.js
-    │   │   │   ├── BillingInformation
-    │   │   │   │   └── index.js
-    │   │   │   ├── CreditBalance
-    │   │   │   │   └── index.js
-    │   │   │   ├── Invoice
-    │   │   │   │   └── index.js
-    │   │   │   ├── PaymentMethod
-    │   │   │   │   └── index.js
-    │   │   │   ├── Transaction
-    │   │   │   │   └── index.js
-    │   │   │   └── Transactions
-    │   │   │       └── index.js
-    │   │   └── index.js
-    │   ├── dashboard
-    │   │   ├── components
-    │   │   │   ├── OrderOverview
-    │   │   │   │   └── index.js
-    │   │   │   ├── Projects
-    │   │   │   │   └── index.js
-    │   │   │   ├── RefferalTracking
-    │   │   │   │   └── index.js
-    │   │   │   ├── SatisfactionRate
-    │   │   │   │   └── index.js
-    │   │   │   └── WelcomeMark
-    │   │   │       └── index.js
-    │   │   ├── data
-    │   │   │   ├── barChartData.js
-    │   │   │   ├── barChartOptions.js
-    │   │   │   ├── lineChartData.js
-    │   │   │   └── lineChartOptions.js
-    │   │   └── index.js
-    │   ├── profile
-    │   │   ├── components
-    │   │   │   ├── CarInformations
-    │   │   │   │   └── index.js
-    │   │   │   ├── Header
-    │   │   │   │   └── index.js
-    │   │   │   ├── PlatformSettings
-    │   │   │   │   └── index.js
-    │   │   │   └── Welcome
-    │   │   │       └── index.js
-    │   │   ├── data
-    │   │   │   ├── lineChartData1.js
-    │   │   │   ├── lineChartData2.js
-    │   │   │   ├── lineChartOptions1.js
-    │   │   │   └── lineChartOptions2.js
-    │   │   └── index.js
-    │   ├── rtl
-    │   │   ├── components
-    │   │   │   ├── OrderOverview
-    │   │   │   │   └── index.js
-    │   │   │   ├── Projects
-    │   │   │   │   └── index.js
-    │   │   │   ├── RefferalTracking
-    │   │   │   │   └── index.js
-    │   │   │   ├── SatisfactionRate
-    │   │   │   │   └── index.js
-    │   │   │   └── WelcomeMark
-    │   │   │       └── index.js
-    │   │   ├── data
-    │   │   │   ├── barChartData.js
-    │   │   │   ├── barChartOptions.js
-    │   │   │   ├── lineChartData.js
-    │   │   │   └── lineChartOptions.js
-    │   │   └── index.js
-    │   ├── tables
-    │   │   ├── data
-    │   │   │   ├── authorsTableData.js
-    │   │   │   └── projectsTableData.js
-    │   │   └── index.js
-    ├── variables
-    │   └── charts.js
-    ├── App.js
-    ├── index.js
-    ├── routes.js
-    ├── .eslintrc.json
-    ├── .gitignore
-    ├── .prettierrc.json
-    ├── CHANGELOG.md
-    ├── ISSUE_TEMPLALTE.md
-    ├── jsconfig.json
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-```
-
-## Browser Support
-
-At present, we officially aim to support the last two versions of the following browsers:
-
-<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/chrome-logo.png?raw=true" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/firefox-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/edge-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/safari-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/opera-logo.png" width="64" height="64">
-
-## Resources
-
-- [Live Preview](https://demos.creative-tim.com/vision-ui-dashboard-react?ref=readme-vudreact)
-- [Buy Page](https://www.creative-tim.com/product/vision-ui-dashboard-react?ref=readme-vudreact)
-- License Agreement: <https://www.creative-tim.com/license?ref=readme-vudreact>
-- Documentation is [here](https://www.creative-tim.com/learning-lab/react/overview/vision-ui-dashboard/?ref=readme-vudreact)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-vudreact)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/vision-ui-dashboard-react/issues)
-
-## Reporting Issues
-
-We use GitHub Issues as the official bug tracker for the Vision UI Dashboard. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Vision UI Dashbaord. Check the CHANGELOG from your dashboard on our [CHANGE LOG File](https://github.com/creativetimofficial/vision-ui-dashboard-react/blob/main/CHANGELOG.md?ref=readme-vudreact).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-vudreact) instead of opening an issue.
-
-## Licensing
-
-- Copyright 2021 [Creative Tim](https://www.creative-tim.com?ref=readme-vudreact)
-
-- Creative Tim [License](https://www.creative-tim.com/license?ref=readme-vudreact)
-
-## Useful Links
-
-- [More products](https://www.creative-tim.com/templates?ref=readme-vudreact) from Creative Tim
-
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-vudreact) from Creative Tim
-
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-vudreact) (earn money)
-
-- [More products](https://simmmple.com/?ref=readme-vudreact) from Simmmple
-
-### Social Media - Creative Tim
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Instagram: <https://www.instagram.com/CreativeTimOfficial>
-
-### Social Media - Simmmple
-
-Twitter: <https://twitter.com/simmmple_web>
-
-Facebook: <https://www.facebook.com/simmmple.web>
-
-Dribbble: <https://dribbble.com/simmmple>
-
-Instagram: <https://www.instagram.com/simmmple.web>
+## Update Logs
+
+### Version 1.2.0 - [Jan 31, 2024]
+
+#### New Features
+
+- **Feature 01:** New Dashboard variant Stocks with a DataStats slider, One Chart graph, My Stocks, Trending Stocks and Latest Transaction Cards.
+- **Feature 02:** Pro Form Elements Range Slider & File Drop Zone.
+- **Feature 03:** Pro Form Layout Contact Form 2 & Survey Form.
+- **Feature 04:** Pro Tables.
+- **Feature 05:** Invoice Two.
+- **Feature 06:** Faq's.
+- **Feature 07:** Teams One & Two.
+- **Feature 08:** Terms & Conditions.
+- **Feature 09:** Avatars One & Two.
+- **Feature 10:** List One, Two & Three.
+- **Feature 11:** Notifications Four.
+- **Feature 12:** Spinners One & Two.
+- **Feature 13:** Coming Soon.
+- **Feature 14:** 2 Step Verification.
+- **Feature 15:** Under Maintenance.
+
+#### Enhancements
+
+- **Enhancement 01:** Integrate flatpickr in [Date Picker/Form Elements]
+- **Enhancement 02:** Change color after select an option [Select Element/Form Elements].
+- **Enhancement 03:** Make it functional [Multiselect Dropdown/Form Elements].
+- **Enhancement 04:** Make best value editable [Pricing Table One/Pricing Table].
+
+### Version 1.0.6 - Initial Release - [Jul 6, 2023]
+
+- Add Typescript in TailAdmin React.
+
+### Version 1.0.0 - Initial Release - [Feb 16, 2023]
+
+- Initial release of TailAdmin React.
