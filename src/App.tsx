@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 import ECommerce from './pages/Dashboard/ECommerce';
+import Home from './pages/Dashboard/Home';
 import Analytics from './pages/Dashboard/Analytics';
 import Marketing from './pages/Dashboard/Marketing';
 import CRM from './pages/Dashboard/CRM';
@@ -78,8 +79,17 @@ function App() {
   ) : (
     <>
       <Routes>
-        <Route
+      <Route
           index
+          element={
+            <>
+              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <Home />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard/ecommerce"
           element={
             <>
               <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
