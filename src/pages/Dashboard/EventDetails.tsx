@@ -114,7 +114,7 @@ const EventDetails = () => {
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
               <div className="flex flex-col gap-7.5 p-4 sm:p-6 xl:p-9">
                 <h3 className="mb-5 text-title-md2 font-bold text-black dark:text-white">
-                  Today's Key Economic Event: {performance?.event}
+                  {performance?.event}
                 </h3>
               </div>
               {
