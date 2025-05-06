@@ -6,9 +6,22 @@ export interface SinpleLineChartProps {
   actual: number[];
   expected: number[];
   x_axis: string[];
+  actual_col_name: string;
+  expected_col_name: string;
 }
 
-const createOptions = (x_axis: string[]): ApexOptions => {
+const calculateMinMax = (actual: number[], expected: number[]): { min: number; max: number } => {
+  const allValues = [...actual, ...expected];
+  const min = Math.min(...allValues);
+  const max = Math.max(...allValues);
+  return {
+    min: Math.round(min * 1.2),
+    max: Math.round(max * 1.2),
+  };
+};
+
+const createOptions = (x_axis: string[], actual: number[], expected: number[]): ApexOptions => {
+  const { min, max } = calculateMinMax(actual, expected);
   return {
     legend: {
       show: false,
@@ -104,8 +117,8 @@ const createOptions = (x_axis: string[]): ApexOptions => {
           fontSize: '0px',
         },
       },
-      // min: 0,
-      // max: 100,
+      min,
+      max,
     },
   };
 }
@@ -121,12 +134,12 @@ const SinpleLineChart: React.FC<SinpleLineChartProps> = (props: SinpleLineChartP
   const [state, setState] = useState<SinpleLineChartState>({
     series: [
       {
-        name: 'Actual',
+        name: props.actual_col_name,
         data: props.actual,
       },
 
       {
-        name: 'Expected',
+        name: props.expected_col_name,
         data: props.expected,
       },
     ],
@@ -148,7 +161,7 @@ const SinpleLineChart: React.FC<SinpleLineChartProps> = (props: SinpleLineChartP
               <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-primary"></span>
             </span>
             <div className="w-full">
-              <p className="font-semibold text-primary">Past actual</p>
+              <p className="font-semibold text-primary">{props.actual_col_name}</p>
               {/* <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p> */}
             </div>
           </div>
@@ -157,7 +170,7 @@ const SinpleLineChart: React.FC<SinpleLineChartProps> = (props: SinpleLineChartP
               <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-secondary"></span>
             </span>
             <div className="w-full">
-              <p className="font-semibold text-secondary">Past expected</p>
+              <p className="font-semibold text-secondary">{props.expected_col_name}</p>
               {/* <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p> */}
             </div>
           </div>
@@ -167,7 +180,7 @@ const SinpleLineChart: React.FC<SinpleLineChartProps> = (props: SinpleLineChartP
       <div>
         <div id="SinpleLineChart" className="-ml-5">
           <ReactApexChart
-            options={createOptions(props.x_axis)}
+            options={createOptions(props.x_axis, props.actual, props.expected)}
             series={state.series}
             type="area"
             height={350}

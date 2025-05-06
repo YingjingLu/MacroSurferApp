@@ -1,17 +1,28 @@
 import { EconomicEvent } from "../models/economic_events";
 
-const EconomicEventStat = (props: {events: EconomicEvent | undefined}) => {
+export interface EconomicEventStatProps {
+  firstNumber: string;
+  firstText: string;
+  secondNumber: string;
+  secondText: string;
+  thirdNumber: string;
+  thirdText: string;
+  fourthNumber: string;
+  fourthText: string;
+}
+
+const EconomicEventStat = (props: EconomicEventStatProps) => {
     return (
       <div className="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-0">
           <div className="flex items-center justify-center gap-2 border-b border-stroke pb-5 dark:border-strokedark xl:border-b-0 xl:border-r xl:pb-0">
             <div>
               <h4 className="mb-0.5 text-xl font-semibold text-black dark:text-white md:text-title-lg">
-                {props.events?.actual}
+                {props.firstNumber}
               </h4>
-              <p className="text-sm font-medium">Actual</p>
+              <p className="text-sm font-medium">{props.firstText}</p>
             </div>
-            <div className="flex items-center gap-1">
+            {/* <div className="flex items-center gap-1">
               <svg
                 width="19"
                 height="19"
@@ -25,16 +36,16 @@ const EconomicEventStat = (props: {events: EconomicEvent | undefined}) => {
                 />
               </svg>
               <span className="text-meta-3">18%</span>
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center justify-center gap-2 border-b border-stroke pb-5 dark:border-strokedark xl:border-b-0 xl:border-r xl:pb-0">
             <div>
               <h4 className="mb-0.5 text-xl font-semibold text-black dark:text-white md:text-title-lg">
-                {props.events?.estimate}
+                {props.secondNumber}
               </h4>
-              <p className="text-sm font-medium">Expected</p>
+              <p className="text-sm font-medium">{props.secondText}</p>
             </div>
-            <div className="flex items-center gap-1">
+            {/* <div className="flex items-center gap-1">
               <svg
                 width="19"
                 height="19"
@@ -48,16 +59,16 @@ const EconomicEventStat = (props: {events: EconomicEvent | undefined}) => {
                 />
               </svg>
               <span className="text-meta-3">25%</span>
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center justify-center gap-2 border-b border-stroke pb-5 dark:border-strokedark sm:border-b-0 sm:pb-0 xl:border-r">
             <div>
               <h4 className="mb-0.5 text-xl font-semibold text-black dark:text-white md:text-title-lg">
-                {props.events?.previous}
+                {props.thirdNumber}
               </h4>
-              <p className="text-sm font-medium">Previous</p>
+              <p className="text-sm font-medium">{props.thirdText}</p>
             </div>
-            <div className="flex items-center gap-1">
+            {/* <div className="flex items-center gap-1">
               <svg
                 width="19"
                 height="19"
@@ -71,16 +82,16 @@ const EconomicEventStat = (props: {events: EconomicEvent | undefined}) => {
                 />
               </svg>
               <span className="text-meta-8">7%</span>
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center justify-center gap-2">
             <div>
               <h4 className="mb-0.5 text-xl font-semibold text-black dark:text-white md:text-title-lg">
-                {props.events?.change_percentage}%
+                {props.fourthNumber}
               </h4>
-              <p className="text-sm font-medium">Diff from expected</p>
+              <p className="text-sm font-medium">{props.fourthText}</p>
             </div>
-            <div className="flex items-center gap-1">
+            {/* <div className="flex items-center gap-1">
               <svg
                 width="19"
                 height="19"
@@ -94,7 +105,7 @@ const EconomicEventStat = (props: {events: EconomicEvent | undefined}) => {
                 />
               </svg>
               <span className="text-meta-3">12%</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -8,8 +8,9 @@ import { EconomicEvent, EconomicEventForWeek, PastEventSymbolPerformance, Symbol
 import { BACKEND_URL } from '../../gobal/constants';
 import SinpleLineChart, { SinpleLineChartProps } from '../../newComponents/SinpleLineChart';
 import BasicVsActualChart from '../../newComponents/ExpectedVsActualChart';
-import EconomicEventStat from '../../newComponents/economicEventStat';
+import EconomicEventStat, { EconomicEventStatProps } from '../../newComponents/economicEventStat';
 import EconomicEventsTable from '../../newComponents/EconomicEventsTable';
+import Spinner from '../../newComponents/Spinner';
 
 const Home = () => {
   const [economicEvents, setEconomicEvents] = useState<EconomicEventForWeek[]>([]);
@@ -51,7 +52,7 @@ const Home = () => {
   const renderEconomicEventList = (eventsForWeek: EconomicEventForWeek[] | undefined) => {
     // if loadingPastEventSymbolPerformance is true, return a loading spinner
     if (!eventsForWeek || eventsForWeek.length === 0) {
-      return <div>Loading...</div>;
+      return <Spinner />;
     }
     console.log(eventsForWeek);
     return (
@@ -76,33 +77,72 @@ const Home = () => {
     return date.substring(0,10);
   }
 
+  const shouldRenderPastSymbolPerformance = (performance: PastEventSymbolPerformance | undefined) => {
+    if (performance === undefined || !performance) {
+      return false;
+    }
+    if (performance.event_history.length < 3) {
+      return false;
+    }
+    if (performance.event_history[0].actual == null
+      && performance.event_history[1].actual == null
+      && performance.event_history[2].actual == null 
+      && performance.performance.in_1_day.length == performance.performance.in_1_hour.length) {
+      return true;
+    }
+    return false;
+  }
+
   const createHistoricalPerformance = (performance: PastEventSymbolPerformance | undefined): SinpleLineChartProps => {
     if (performance === undefined || !performance) {
       return {
         actual: [],
         expected: [],
         x_axis: [],
+        actual_col_name: 'Actual',
+        expected_col_name: 'Expected',
       };
     }
     const actual: number[] = [];
     const expected: number[] = [];
     const x_axis: string[] = [];
-    for (const event of performance.event_history) {
-      if (event.actual !== undefined && event.estimate !== undefined && event.event_date !== undefined) {
-        actual.push(event.actual);
-        expected.push(event.estimate);
-        x_axis.push(`${formatDateToMMDD(event.event_date)}`);
+    if (shouldRenderPastSymbolPerformance(performance)) {
+      for (let index = 0; index < performance.event_history.length; index++) {
+        const event = performance.event_history[index];
+        if (event.actual !== undefined && event.estimate !== undefined && event.event_date !== undefined) {
+          actual.push(parseFloat(performance.performance.in_1_hour[index].toFixed(2)));
+          expected.push(parseFloat(performance.performance.in_1_day[index].toFixed(2)));
+          x_axis.push(`${formatDateToMMDD(event.event_date)}`);
+        }
       }
+      return {
+        actual,
+        expected,
+        x_axis,
+        actual_col_name: '1 Hour SPY Change',
+        expected_col_name: '1 Day SPY Change',
+      };
+    } else {
+      for (const event of performance.event_history) {
+        if (event.actual !== undefined && event.estimate !== undefined && event.event_date !== undefined) {
+          actual.push(event.actual);
+          expected.push(event.estimate);
+          x_axis.push(`${formatDateToMMDD(event.event_date)}`);
+        }
+      }
+      return {
+        actual,
+        expected,
+        x_axis,
+        actual_col_name: 'Actual',
+        expected_col_name: 'Expected',
+      };
     }
-    return {
-      actual,
-      expected,
-      x_axis,
-    };
   }
+
   const renderEconomicEventStat = (performance: PastEventSymbolPerformance | undefined) => {
     if (performance === undefined || !performance) {
-      return <div>Loading...</div>;
+      return <Spinner />;
     }
     if (performance.error) {
       return (
@@ -123,8 +163,14 @@ const Home = () => {
               Today's Key Economic Event: {performance?.event}
             </h3>
           </div>
-          <EconomicEventStat events={lastEconomicEvent} />
+          {
+            (shouldRenderPastSymbolPerformance(performance)) ? 
+              <EconomicEventStat firstNumber={performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1].toFixed(2) + "%"} secondNumber={performance.performance.in_1_day[performance.performance.in_1_day.length - 1].toFixed(2) + "%"} thirdNumber={(performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length).toFixed(2) + "%"} fourthNumber={(performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length).toFixed(2) + "%"} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
+            :
+              <EconomicEventStat firstNumber={lastEconomicEvent?.actual.toFixed(2)} secondNumber={lastEconomicEvent?.estimate.toFixed(2)} thirdNumber={lastEconomicEvent?.previous.toFixed(2)} fourthNumber={lastEconomicEvent?.change_percentage.toFixed(2)} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
+          }
         </div>
+        
           <SinpleLineChart {...createHistoricalPerformance(performance)} />
       </>
 
