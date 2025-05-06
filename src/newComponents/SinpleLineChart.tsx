@@ -148,7 +148,7 @@ const SinpleLineChart: React.FC<SinpleLineChartProps> = (props: SinpleLineChartP
               <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-primary"></span>
             </span>
             <div className="w-full">
-              <p className="font-semibold text-primary">Historic actual</p>
+              <p className="font-semibold text-primary">Past actual</p>
               {/* <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p> */}
             </div>
           </div>
@@ -157,7 +157,7 @@ const SinpleLineChart: React.FC<SinpleLineChartProps> = (props: SinpleLineChartP
               <span className="block h-2.5 w-full max-w-2.5 rounded-full bg-secondary"></span>
             </span>
             <div className="w-full">
-              <p className="font-semibold text-secondary">Historic expected</p>
+              <p className="font-semibold text-secondary">Past expected</p>
               {/* <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p> */}
             </div>
           </div>

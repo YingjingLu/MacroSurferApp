@@ -60,7 +60,7 @@ import Spinners from './pages/UiElements/Spinners';
 import ComingSoon from './pages/Authentication/ComingSoon';
 import TwoStepVerification from './pages/Authentication/TwoStepVerification';
 import UnderMaintenance from './pages/Authentication/UnderMaintenance';
-
+import EventDetails from './pages/Dashboard/EventDetails';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -83,8 +83,17 @@ function App() {
           index
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="MacroSurfer | Quantative Analysis for Macroeconomic Events" />
               <Home />
+            </>
+          }
+        />
+        <Route
+          path="/event-history/:event"
+          element={
+            <>
+              <PageTitle title="MacroSurfer | Event history details" />
+              <EventDetails />
             </>
           }
         />
