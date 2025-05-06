@@ -101,7 +101,7 @@ const EventDetails = () => {
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="flex flex-col gap-7.5 p-4 sm:p-6 xl:p-9">
               <h3 className="mb-5 text-title-md2 font-bold text-black dark:text-white">
-                No important events in US today!
+                Error loading the event!
               </h3>
             </div>
           </div>);
@@ -121,6 +121,43 @@ const EventDetails = () => {
                 :
                   <EconomicEventStat firstNumber={lastEconomicEvent?.actual.toFixed(2)} secondNumber={lastEconomicEvent?.estimate !== null ? lastEconomicEvent.estimate.toFixed(2) : "N/A"} thirdNumber={lastEconomicEvent?.previous.toFixed(2)} fourthNumber={lastEconomicEvent?.change_percentage.toFixed(2)} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
               }
+            </div>
+            
+              <SinpleLineChart {...createHistoricalPerformance(performance)} />
+          </>
+    
+        );
+      };
+
+      const renderSymbolPerformance = (performance: PastEventSymbolPerformance | undefined) => {
+        if (loadingPastEventSymbolPerformance) {
+          return <Spinner />;
+        }
+        if (performance.error) {
+          return (
+          <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+            <div className="flex flex-col gap-7.5 p-4 sm:p-6 xl:p-9">
+              <h3 className="mb-5 text-title-md2 font-bold text-black dark:text-white">
+                Error loading the event!
+              </h3>
+            </div>
+          </div>);
+        }
+        if (shouldRenderPastSymbolPerformance(performance)) {
+          return (
+            <>
+            </>
+          )
+        }
+        return (
+          <>
+            <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+              <div className="flex flex-col gap-7.5 p-4 sm:p-6 xl:p-9">
+                <h3 className="mb-5 text-title-md2 font-bold text-black dark:text-white">
+                  SPY Performance with respect to {performance?.event}
+                </h3>
+              </div>
+              <EconomicEventStat firstNumber={performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1].toFixed(2) + "%"} secondNumber={performance.performance.in_1_day[performance.performance.in_1_day.length - 1].toFixed(2) + "%"} thirdNumber={(performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length).toFixed(2) + "%"} fourthNumber={(performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length).toFixed(2) + "%"} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
             </div>
             
               <SinpleLineChart {...createHistoricalPerformance(performance)} />
