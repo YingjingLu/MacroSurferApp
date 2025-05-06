@@ -9,7 +9,6 @@ import Spinner from "../../newComponents/Spinner";
 const EventDetails = () => {
 
     const { event } = useParams();
-    console.log(event);
     const [eventSymbolPerformance, setEventSymbolPerformance] = useState<PastEventSymbolPerformance>(null);
     const [loadingPastEventSymbolPerformance, setLoadingPastEventSymbolPerformance] = useState(true);
 
@@ -25,7 +24,6 @@ const EventDetails = () => {
     }, [event]);
 
     function formatDateToMMDD(date: String): string {
-        console.log(date);
         return date.substring(0,10);
       }
 
