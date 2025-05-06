@@ -51,10 +51,9 @@ const Home = () => {
 
   const renderEconomicEventList = (eventsForWeek: EconomicEventForWeek[] | undefined) => {
     // if loadingPastEventSymbolPerformance is true, return a loading spinner
-    if (!eventsForWeek || eventsForWeek.length === 0) {
+    if (loadingEconomicEvents) {
       return <Spinner />;
     }
-    console.log(eventsForWeek);
     return (
       <>
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -141,7 +140,7 @@ const Home = () => {
   }
 
   const renderEconomicEventStat = (performance: PastEventSymbolPerformance | undefined) => {
-    if (performance === undefined || !performance) {
+    if (loadingPastEventSymbolPerformance) {
       return <Spinner />;
     }
     if (performance.error) {
