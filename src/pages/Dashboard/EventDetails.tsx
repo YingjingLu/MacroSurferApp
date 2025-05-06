@@ -119,7 +119,7 @@ const EventDetails = () => {
                 (shouldRenderPastSymbolPerformance(performance)) ? 
                   <EconomicEventStat firstNumber={performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1].toFixed(2) + "%"} secondNumber={performance.performance.in_1_day[performance.performance.in_1_day.length - 1].toFixed(2) + "%"} thirdNumber={(performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length).toFixed(2) + "%"} fourthNumber={(performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length).toFixed(2) + "%"} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
                 :
-                  <EconomicEventStat firstNumber={lastEconomicEvent?.actual.toFixed(2)} secondNumber={lastEconomicEvent?.estimate !== null ? lastEconomicEvent.estimate.toFixed(2) : "N/A"} thirdNumber={lastEconomicEvent?.previous.toFixed(2)} fourthNumber={lastEconomicEvent?.change_percentage.toFixed(2)} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
+                  <EconomicEventStat firstNumber={lastEconomicEvent?.actual.toFixed(2)} secondNumber={lastEconomicEvent?.estimate !== null ? lastEconomicEvent.estimate.toFixed(2) : "N/A"} thirdNumber={lastEconomicEvent?.previous.toFixed(2)} fourthNumber={lastEconomicEvent?.change_percentage.toFixed(2) + "%"} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
               }
             </div>
             
