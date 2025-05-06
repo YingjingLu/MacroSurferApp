@@ -25,7 +25,7 @@ const EconomicEventsTable = (props: { economicEvents: EconomicEventWithDayOfWeek
                     <p className="font-medium">Previous</p>
                 </div>
                 <div className="col-span-1 flex items-center">
-                    <p className="font-medium">View History</p>
+                    <p className="font-medium">History</p>
                 </div>
             </div>) : (<div></div>)}
 
@@ -56,7 +56,7 @@ const EconomicEventsTable = (props: { economicEvents: EconomicEventWithDayOfWeek
                         <p className="text-sm text-black dark:text-white">{event.estimate}</p>
                     </div>
                     <div className="col-span-1 flex items-center">
-                        <p className="text-sm text-meta-3">{event.previous}</p>
+                        <p className="text-sm text-black dark:text-white">{event.previous}</p>
                     </div>
                     <div className="col-span-1 flex items-center">
                         <button className="text-sm text-meta-3" onClick={() => window.location.href = `/event-history/${event.event}`}>View History</button>
