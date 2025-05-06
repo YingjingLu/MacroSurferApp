@@ -12,11 +12,21 @@ export interface SinpleLineChartProps {
 
 const calculateMinMax = (actual: number[], expected: number[]): { min: number; max: number } => {
   const allValues = [...actual, ...expected];
-  const min = Math.min(...allValues);
-  const max = Math.max(...allValues);
+  var min = Math.min(...allValues);
+  var max = Math.max(...allValues);
+  if (min < 0) {
+    min = min * 1.2;
+  } else {
+    min = min* 0.8;
+  }
+  if (max < 0) {
+    max = max * 0.8;
+  } else {
+    max = max * 1.2;
+  }
   return {
-    min: Math.round(min * 1.2),
-    max: Math.round(max * 1.2),
+    min: Math.round(min),
+    max: Math.round(max),
   };
 };
 
