@@ -72,7 +72,6 @@ const Home = () => {
     );
   };
   function formatDateToMMDD(date: String): string {
-    console.log(date);
     return date.substring(0,10);
   }
 
