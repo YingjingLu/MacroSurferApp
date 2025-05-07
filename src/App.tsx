@@ -89,7 +89,7 @@ function App() {
           }
         />
         <Route
-          path="/event-history/:event"
+          path="/event-history/:event/:event_date"
           element={
             <>
               <PageTitle title="MacroSurfer | Event history details" />

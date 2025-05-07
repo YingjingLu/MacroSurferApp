@@ -15,8 +15,10 @@ import Spinner from '../../newComponents/Spinner';
 const Home = () => {
   const [economicEvents, setEconomicEvents] = useState<EconomicEventForWeek[]>([]);
   const [pastEventSymbolPerformance, setPastEventSymbolPerformance] = useState<PastEventSymbolPerformance>();
+  const [aiDescription, setAiDescription] = useState<string>("");
   const [loadingEconomicEvents, setLoadingEconomicEvents] = useState(true);
   const [loadingPastEventSymbolPerformance, setLoadingPastEventSymbolPerformance] = useState(true);
+  const [loadingAiDescription, setLoadingAiDescription] = useState(true);
 
   useEffect(() => {
     const fetchEconomicEvents = async () => {
@@ -43,6 +45,12 @@ const Home = () => {
       const pastEventSymbolPerformance = data as PastEventSymbolPerformance;
       setPastEventSymbolPerformance(pastEventSymbolPerformance);
       setLoadingPastEventSymbolPerformance(false);
+      const eventDate = new Date(pastEventSymbolPerformance?.event_history[pastEventSymbolPerformance?.event_history.length - 1].event_date);
+      const aiResponse = await fetch(`${BACKEND_URL}/economic-events-ai-insights/${pastEventSymbolPerformance?.event}/US/${eventDate.toISOString().substring(0, 10)}`);
+      const aiData = await aiResponse.json();
+      console.log(aiData);
+      setAiDescription(aiData);
+      setLoadingAiDescription(false);
     };
 
     fetchEconomicEvents();
@@ -138,7 +146,7 @@ const Home = () => {
     }
   }
 
-  const renderEconomicEventStat = (performance: PastEventSymbolPerformance | undefined) => {
+  const renderEconomicEventStat = (performance: PastEventSymbolPerformance | undefined, aiDescription: string, loadingAiDescription: boolean) => {
     if (loadingPastEventSymbolPerformance) {
       return <Spinner />;
     }
@@ -160,6 +168,12 @@ const Home = () => {
             <h3 className="mb-5 text-title-md2 font-bold text-black dark:text-white">
               Today's Key Economic Event: {performance?.event}
             </h3>
+            {
+              loadingAiDescription ? <Spinner /> : ( aiDescription !== "" ? (<p className="font-medium text-black dark:text-white">
+                {aiDescription}
+              </p>) : <></>
+              )
+            }
           </div>
           {
             (shouldRenderPastSymbolPerformance(performance)) ? 
@@ -177,7 +191,7 @@ const Home = () => {
 
   return (
     <DefaultLayout>
-      {renderEconomicEventStat(pastEventSymbolPerformance)}
+      {renderEconomicEventStat(pastEventSymbolPerformance, aiDescription, loadingAiDescription)}
       <br />
       {renderEconomicEventList(economicEvents)}
     </DefaultLayout>

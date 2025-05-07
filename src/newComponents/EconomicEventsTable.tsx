@@ -59,7 +59,7 @@ const EconomicEventsTable = (props: { economicEvents: EconomicEventWithDayOfWeek
                         <p className="text-sm text-black dark:text-white">{event.previous}</p>
                     </div>
                     <div className="col-span-1 flex items-center">
-                        <button className="text-sm text-meta-3" onClick={() => window.location.href = `/event-history/${event.event}`}>View History</button>
+                        <button className="text-sm text-meta-3" onClick={() => window.location.href = `/event-history/${event.event}/${event.event_date.substring(0, 10)}`}>View History</button>
                     </div>
                 </div>
             ))}

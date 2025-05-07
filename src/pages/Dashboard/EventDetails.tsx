@@ -8,9 +8,11 @@ import EconomicEventStat from "../../newComponents/economicEventStat";
 import Spinner from "../../newComponents/Spinner";
 const EventDetails = () => {
 
-  const { event } = useParams();
+  const { event, event_date } = useParams();
   const [eventSymbolPerformance, setEventSymbolPerformance] = useState<PastEventSymbolPerformance>(null);
   const [loadingPastEventSymbolPerformance, setLoadingPastEventSymbolPerformance] = useState(true);
+  const [aiDescription, setAiDescription] = useState<string>("");
+  const [loadingAiDescription, setLoadingAiDescription] = useState(true);
 
   useEffect(() => {
     const fetchEventSymbolPerformance = async () => {
@@ -22,6 +24,16 @@ const EventDetails = () => {
     };
     fetchEventSymbolPerformance();
   }, [event]);
+
+  useEffect(() => {
+    const fetchAiDescription = async () => {
+      const response = await fetch(`${BACKEND_URL}/economic-events-ai-insights/${event}/US/${event_date}`);
+      const data = await response.json();
+      setAiDescription(data);
+      setLoadingAiDescription(false);
+    };
+    fetchAiDescription();
+  }, [event,event_date]);
 
   function formatDateToMMDD(date: String): string {
     return date.substring(0, 10);
@@ -92,7 +104,7 @@ const EventDetails = () => {
     }
   }
 
-  const renderEconomicEventStat = (performance: PastEventSymbolPerformance | undefined) => {
+  const renderEconomicEventStat = (performance: PastEventSymbolPerformance | undefined, aiDescription: string, loadingAiDescription: boolean) => {
     if (loadingPastEventSymbolPerformance) {
       return <Spinner />;
     }
@@ -114,6 +126,12 @@ const EventDetails = () => {
             <h3 className="mb-5 text-title-md2 font-bold text-black dark:text-white">
               {performance?.event}
             </h3>
+            {
+              loadingAiDescription ? <Spinner /> : ( aiDescription !== "" ? (<p className="font-medium text-black dark:text-white">
+                {aiDescription}
+              </p>) : <></>
+              )
+            }
           </div>
           {
             (shouldRenderPastSymbolPerformance(performance)) ?
@@ -199,7 +217,7 @@ const EventDetails = () => {
 
   return (
     <DefaultLayout>
-      {renderEconomicEventStat(eventSymbolPerformance)}
+      {renderEconomicEventStat(eventSymbolPerformance, aiDescription, loadingAiDescription)}
       <br />
       {renderSymbolPerformance(eventSymbolPerformance)}
     </DefaultLayout>
