@@ -6,6 +6,7 @@ import { BACKEND_URL } from "../../gobal/constants";
 import SinpleLineChart, { SinpleLineChartProps } from "../../newComponents/SinpleLineChart";
 import EconomicEventStat from "../../newComponents/economicEventStat";
 import Spinner from "../../newComponents/Spinner";
+import { safeNumberDisplay } from "../../utils/safeTextDisplay";
 const EventDetails = () => {
 
   const { event, event_date } = useParams();
@@ -135,9 +136,9 @@ const EventDetails = () => {
           </div>
           {
             (shouldRenderPastSymbolPerformance(performance)) ?
-              <EconomicEventStat firstNumber={performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1].toFixed(2) + "%"} secondNumber={performance.performance.in_1_day[performance.performance.in_1_day.length - 1].toFixed(2) + "%"} thirdNumber={(performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length).toFixed(2) + "%"} fourthNumber={(performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length).toFixed(2) + "%"} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
+              <EconomicEventStat firstNumber={safeNumberDisplay(performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1], "%", "N/A")} secondNumber={safeNumberDisplay(performance.performance.in_1_day[performance.performance.in_1_day.length - 1], "%", "N/A")} thirdNumber={safeNumberDisplay((performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length), "%", "N/A")} fourthNumber={safeNumberDisplay((performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length), "%", "N/A")} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
               :
-              <EconomicEventStat firstNumber={lastEconomicEvent?.actual.toFixed(2)} secondNumber={lastEconomicEvent?.estimate !== null ? lastEconomicEvent.estimate.toFixed(2) : "N/A"} thirdNumber={lastEconomicEvent?.previous.toFixed(2)} fourthNumber={lastEconomicEvent?.change_percentage.toFixed(2) + "%"} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
+              <EconomicEventStat firstNumber={safeNumberDisplay(lastEconomicEvent?.actual, "", "N/A")} secondNumber={safeNumberDisplay(lastEconomicEvent?.estimate, "", "N/A")} thirdNumber={safeNumberDisplay(lastEconomicEvent?.previous, "", "N/A")} fourthNumber={safeNumberDisplay(lastEconomicEvent?.change_percentage, "%", "N/A")} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
           }
         </div>
 
@@ -205,7 +206,7 @@ const EventDetails = () => {
               {performance?.event}'s impact on S&P 500
             </h3>
           </div>
-          <EconomicEventStat firstNumber={performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1].toFixed(2) + "%"} secondNumber={performance.performance.in_1_day[performance.performance.in_1_day.length - 1].toFixed(2) + "%"} thirdNumber={(performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length).toFixed(2) + "%"} fourthNumber={(performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length).toFixed(2) + "%"} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
+          <EconomicEventStat firstNumber={safeNumberDisplay(performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1], "%", "N/A")} secondNumber={safeNumberDisplay(performance.performance.in_1_day[performance.performance.in_1_day.length - 1], "%", "N/A")} thirdNumber={safeNumberDisplay((performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length), "%", "N/A")} fourthNumber={safeNumberDisplay((performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length), "%", "N/A")} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
         </div>
 
         <SinpleLineChart {...createBenchmarkPerformance(performance)} />
