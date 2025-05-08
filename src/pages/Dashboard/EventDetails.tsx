@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import DefaultLayout from "../../layout/DefaultLayout";
 import { useState, useEffect } from "react";
-import { PastEventSymbolPerformance } from "../../models/economic_events";
+import { EconomicEvent, PastEventSymbolPerformance } from "../../models/economic_events";
 import { BACKEND_URL } from "../../gobal/constants";
 import SinpleLineChart, { SinpleLineChartProps } from "../../newComponents/SinpleLineChart";
 import EconomicEventStat from "../../newComponents/economicEventStat";
 import Spinner from "../../newComponents/Spinner";
 import { safeNumberDisplay } from "../../utils/safeTextDisplay";
+import { isTodayEvent } from "../../utils/dateUtils";
 const EventDetails = () => {
 
   const { event, event_date } = useParams();
@@ -119,7 +120,25 @@ const EventDetails = () => {
           </div>
         </div>);
     }
-    const lastEconomicEvent = performance?.event_history[performance?.event_history.length - 1];
+    var economicEventToDisplay: EconomicEvent = performance?.event_history[performance?.event_history.length - 1];
+    console.log(economicEventToDisplay);
+
+    if (economicEventToDisplay.event_date !== undefined && (isTodayEvent(economicEventToDisplay.event_date) == false)) {
+      economicEventToDisplay = {
+        event: performance?.event,
+        event_date: performance?.event_history[performance?.event_history.length - 1].event_date,
+        additional_identifier: performance?.event_history[performance?.event_history.length - 1].additional_identifier,
+        country: performance?.event_history[performance?.event_history.length - 1].country,
+        currency: performance?.event_history[performance?.event_history.length - 1].currency,
+        previous: performance?.event_history[performance?.event_history.length - 1].actual,
+        estimate: null,
+        actual: null,
+        change: null,
+        change_percentage: null,
+        impact: null,
+        unit: null,
+      };
+    }
     return (
       <>
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -138,7 +157,7 @@ const EventDetails = () => {
             (shouldRenderPastSymbolPerformance(performance)) ?
               <EconomicEventStat firstNumber={safeNumberDisplay(performance.performance.in_1_hour[performance.performance.in_1_hour.length - 1], "%", "N/A")} secondNumber={safeNumberDisplay(performance.performance.in_1_day[performance.performance.in_1_day.length - 1], "%", "N/A")} thirdNumber={safeNumberDisplay((performance.performance.in_1_hour.reduce((a, b) => a + b, 0) / performance.performance.in_1_hour.length), "%", "N/A")} fourthNumber={safeNumberDisplay((performance.performance.in_1_day.reduce((a, b) => a + b, 0) / performance.performance.in_1_day.length), "%", "N/A")} firstText={"Last 1 hour SPY change"} secondText={"Last 1 day SPY change"} thirdText={"Average 1 hour SPY change"} fourthText={"Average 1 day SPY change"} />
               :
-              <EconomicEventStat firstNumber={safeNumberDisplay(lastEconomicEvent?.actual, "", "N/A")} secondNumber={safeNumberDisplay(lastEconomicEvent?.estimate, "", "N/A")} thirdNumber={safeNumberDisplay(lastEconomicEvent?.previous, "", "N/A")} fourthNumber={safeNumberDisplay(lastEconomicEvent?.change_percentage, "%", "N/A")} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
+              <EconomicEventStat firstNumber={safeNumberDisplay(economicEventToDisplay?.actual, "", "N/A")} secondNumber={safeNumberDisplay(economicEventToDisplay?.estimate, "", "N/A")} thirdNumber={safeNumberDisplay(economicEventToDisplay?.previous, "", "N/A")} fourthNumber={safeNumberDisplay(economicEventToDisplay?.change_percentage, "%", "N/A")} firstText={"Actual"} secondText={"Estimate"} thirdText={"Previous"} fourthText={"Diff from expected"} />
           }
         </div>
 
